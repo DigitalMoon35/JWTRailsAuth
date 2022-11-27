@@ -21,8 +21,10 @@ class UsersController < ApplicationController
       render json: {error: "Invalid username or password"}, status: :unprocessable_entity
     end
   end
-  
+
   def index
+    @users = User.all
+    render json: {users: @users}
   end
 
   private
